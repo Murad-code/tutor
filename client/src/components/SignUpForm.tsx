@@ -8,6 +8,7 @@ type FormInput = {
   name: string;
   phoneNumber: string;
   email: string;
+  password: string;
   subject: string;
   address: string;
   city: string;
@@ -77,6 +78,18 @@ const SignUpForm = (props: Props) => {
           className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="name@company.com"
           {...register("email", { required: true })}
+        />
+      </div>
+      <div>
+        <label htmlFor="password" className="block mb-2 text-sm font-medium">
+          Your password
+        </label>
+        <input
+          type="password"
+          id="password"
+          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="password"
+          {...register("password", { required: true })}
         />
       </div>
       <div>
