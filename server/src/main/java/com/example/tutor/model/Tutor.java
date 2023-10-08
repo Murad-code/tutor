@@ -13,7 +13,9 @@ public class Tutor {
     private String name;
     private String subject;
     private String phoneNumber;
+    @Column(unique = true)
     private String email;
+    private String password;
     private String address;
     private String city;
     private String postCode;
@@ -33,6 +35,14 @@ public class Tutor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSubject() {
