@@ -10,13 +10,20 @@ import org.springframework.stereotype.Service;
 public class TutorService {
     @Autowired
     private TutorRepository tutorRepository;
-//    @Autowired
-//    private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
     public Tutor createTutor(Tutor tutor) {
-//        String hashedPassword = passwordEncoder.encode(tutor.getPassword());
-//        tutor.setPassword(hashedPassword);
-//        System.out.println(tutor.getPassword());
-        return tutorRepository.save(tutor);
+        String encodedPassword = encoder.encode(tutor.getPassword());
+        tutor.setPassword(encodedPassword);
+
+        try {
+            return tutorRepository.save(tutor);
+        } catch (Exception e) {
+            // Handle the exception (log it, return an error response, etc.)
+            throw new RuntimeException("Error creating tutor", e);
+        }
     }
 
     public Tutor getTutorById(Long id) {

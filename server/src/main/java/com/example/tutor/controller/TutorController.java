@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/tutor")
-@CrossOrigin(origins = "*")
 public class TutorController {
 
     @Autowired
