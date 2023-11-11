@@ -56,16 +56,14 @@ public class WebSecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/tutor-api/auth/**").permitAll()
+                        auth.requestMatchers("/user/**").permitAll()
                                 .requestMatchers("/auth/**").permitAll()
-                                .requestMatchers("/tutor-api/tutor/**").permitAll()
-                                .requestMatchers("/tutor/**").permitAll()
-//                                .anyRequest().authenticated()
+                                .anyRequest().authenticated()
                         )
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler));
 
-//        http.authenticationProvider(authenticationProvider());
-//        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.authenticationProvider(authenticationProvider());
+        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
