@@ -1,7 +1,13 @@
-package com.example.tutor.dtos;
+package com.example.tutor.payload.request;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class LoginRequest {
+    @NotBlank
+    @Email
     private String email;
+    @NotBlank
     private String password;
 
     // Getters and setters
