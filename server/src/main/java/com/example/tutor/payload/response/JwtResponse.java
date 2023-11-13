@@ -1,5 +1,8 @@
 package com.example.tutor.payload.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
 import java.util.List;
 
 public class JwtResponse {
@@ -9,13 +12,17 @@ public class JwtResponse {
     private String name;
     private String email;
     private List<String> roles;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+    private Date jwtExpiration;
 
-    public JwtResponse(String accessToken, Long id, String name, String email, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, String name, String email, List<String> roles, Date jwtExpiration) {
         this.token = accessToken;
         this.id = id;
         this.name = name;
         this.email = email;
         this.roles = roles;
+        this.jwtExpiration = jwtExpiration;
+
     }
 
     public String getToken() {
