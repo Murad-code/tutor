@@ -1,5 +1,5 @@
 import { FormInput } from "@/components/LoginForm";
-import { RegisterFormInput } from "@/components/SignUpForm";
+import { SignUpFormInput } from "@/components/SignUpForm";
 import Cookies from "js-cookie";
 
 interface IResponse {
@@ -30,7 +30,7 @@ export const handleSignIn = async (data: FormInput) => {
   }
 };
 
-export const handleSignUp = async (data: RegisterFormInput) => {
+export const handleSignUp = async (data: SignUpFormInput) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/signup`, {
       method: "POST",

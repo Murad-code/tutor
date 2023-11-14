@@ -104,7 +104,7 @@ const MobileMenu = () => {
 };
 const ActionButtons = ({ mobile }: { mobile: boolean }) => {
   const [isLoginOpen, setIsLoginInOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
   return (
     <div
       className={classNames(
@@ -122,7 +122,7 @@ const ActionButtons = ({ mobile }: { mobile: boolean }) => {
       <div>
         <button
           className="mr-16 md:mr-10 bg-[rgb(25,114,120)] px-4 py-2 rounded-lg text-white text-lg hover:bg-[rgb(40,94,98)]"
-          onClick={() => setIsRegisterOpen(true)}
+          onClick={() => setIsSignUpOpen(true)}
         >
           Sign Up
         </button>
@@ -138,11 +138,11 @@ const ActionButtons = ({ mobile }: { mobile: boolean }) => {
         </DialogWrapper>
       )}
 
-      {isRegisterOpen && (
+      {isSignUpOpen && (
         <DialogWrapper
           title="Sign Up"
-          isOpen={isRegisterOpen}
-          setIsOpen={setIsRegisterOpen}
+          isOpen={isSignUpOpen}
+          setIsOpen={setIsSignUpOpen}
         >
           <SignUpForm />
         </DialogWrapper>
