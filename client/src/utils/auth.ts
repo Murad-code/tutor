@@ -1,4 +1,4 @@
-import { FormInput } from "@/components/SignInForm";
+import { FormInput } from "@/components/LoginForm";
 import { RegisterFormInput } from "@/components/SignUpForm";
 import Cookies from "js-cookie";
 

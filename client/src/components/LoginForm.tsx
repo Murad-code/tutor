@@ -12,7 +12,7 @@ export type FormInput = {
   password: string;
 };
 
-const SignInForm = (props: Props) => {
+const LoginForm = (props: Props) => {
   const { register, handleSubmit } = useForm<FormInput>();
 
   const onSubmit: SubmitHandler<FormInput> = async (data) => handleSignIn(data);
@@ -60,4 +60,4 @@ const SignInForm = (props: Props) => {
   );
 };
 
-export default SignInForm;
+export default LoginForm;

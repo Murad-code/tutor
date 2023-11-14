@@ -5,7 +5,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 type Props = {};
 
-export type RegisterFormInput = {
+export type SignUpFormInput = {
   name: string;
   phoneNumber: string;
   email: string;
@@ -17,15 +17,15 @@ export type RegisterFormInput = {
 };
 
 const SignUpForm = (props: Props) => {
-  const { register, handleSubmit } = useForm<RegisterFormInput>();
+  const { register, handleSubmit } = useForm<SignUpFormInput>();
 
-  const onSubmit: SubmitHandler<RegisterFormInput> = async (data) => {
+  const onSubmit: SubmitHandler<SignUpFormInput> = async (data) => {
     handleSignUp(data);
   };
 
   return (
     <form
-      className="flex-grow md:max-w-[800px] bg-white  dark:text-white dark:bg-gray-800 space-y-4 md:space-y-6 mt-10 rounded-2xl p-6 md:px-20 md:py-10"
+      className="flex-grow md:max-w-[800px] bg-white  dark:text-white dark:bg-gray-800 space-y-4 md:space-y-6 rounded-2xl p-6 md:px-20 md:py-10"
       action="#"
       onSubmit={handleSubmit(onSubmit)}
     >

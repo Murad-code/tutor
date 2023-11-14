@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import classNames from "classnames";
-import SignInForm from "./SignInForm";
+import LoginForm from "./LoginForm";
 import DialogWrapper from "./DialogWrapper";
 import SignUpForm from "./SignUpForm";
 
@@ -103,7 +103,7 @@ const MobileMenu = () => {
   );
 };
 const ActionButtons = ({ mobile }: { mobile: boolean }) => {
-  const [isSignInOpen, setisSignInOpen] = useState(false);
+  const [isLoginOpen, setIsLoginInOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   return (
     <div
@@ -114,7 +114,7 @@ const ActionButtons = ({ mobile }: { mobile: boolean }) => {
       <div>
         <button
           className="mr-8 md:ml-14 md:mr-2 bg-[rgb(25,114,120)] px-4 py-2 rounded-lg text-white text-lg hover:bg-[rgb(40,94,98)]"
-          onClick={() => setisSignInOpen(true)}
+          onClick={() => setIsLoginInOpen(true)}
         >
           Login
         </button>
@@ -124,23 +124,23 @@ const ActionButtons = ({ mobile }: { mobile: boolean }) => {
           className="mr-16 md:mr-10 bg-[rgb(25,114,120)] px-4 py-2 rounded-lg text-white text-lg hover:bg-[rgb(40,94,98)]"
           onClick={() => setIsRegisterOpen(true)}
         >
-          Register
+          Sign Up
         </button>
       </div>
 
-      {isSignInOpen && (
+      {isLoginOpen && (
         <DialogWrapper
-          title="Sign In"
-          isOpen={isSignInOpen}
-          setIsOpen={setisSignInOpen}
+          title="Login"
+          isOpen={isLoginOpen}
+          setIsOpen={setIsLoginInOpen}
         >
-          <SignInForm />
+          <LoginForm />
         </DialogWrapper>
       )}
 
       {isRegisterOpen && (
         <DialogWrapper
-          title="Sign In"
+          title="Sign Up"
           isOpen={isRegisterOpen}
           setIsOpen={setIsRegisterOpen}
         >
