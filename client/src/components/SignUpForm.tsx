@@ -1,10 +1,11 @@
 "use client";
 
+import { handleSignUp } from "@/utils/auth";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 type Props = {};
 
-type FormInput = {
+export type RegisterFormInput = {
   name: string;
   phoneNumber: string;
   email: string;
@@ -16,26 +17,10 @@ type FormInput = {
 };
 
 const SignUpForm = (props: Props) => {
-  const { register, handleSubmit } = useForm<FormInput>();
+  const { register, handleSubmit } = useForm<RegisterFormInput>();
 
-  const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/signup`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      const responseData = await res.json();
-      console.log("Success:", responseData);
-    } catch (error) {
-      console.log("Error: " + error);
-    }
+  const onSubmit: SubmitHandler<RegisterFormInput> = async (data) => {
+    handleSignUp(data);
   };
 
   return (
