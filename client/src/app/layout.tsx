@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
@@ -18,8 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={fredoka.className}>
-        <Navbar default={"student"} />
-
+        <Navbar />
         {children}
       </body>
     </html>
