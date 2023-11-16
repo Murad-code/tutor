@@ -1,6 +1,20 @@
-import { FormInput } from "@/components/LoginForm";
-import { SignUpFormInput } from "@/components/SignUpForm";
 import Cookies from "js-cookie";
+
+export type LoginFormInput = {
+  email: string;
+  password: string;
+};
+
+export type SignUpFormInput = {
+  name: string;
+  phoneNumber: string;
+  email: string;
+  password: string;
+  subject: string;
+  address: string;
+  city: string;
+  postCode: string;
+};
 
 interface IResponse {
   email: string;

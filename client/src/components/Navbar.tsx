@@ -1,11 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import classNames from "classnames";
 import LoginForm from "./LoginForm";
 import DialogWrapper from "./DialogWrapper";
 import SignUpForm from "./SignUpForm";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { title: "Search Tutor", path: "#" },
@@ -105,6 +106,12 @@ const MobileMenu = () => {
 const ActionButtons = ({ mobile }: { mobile: boolean }) => {
   const [isLoginOpen, setIsLoginInOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  
+  // This closes the dialog components once user has been rerouted to another page after successful log in/registration
+  const pathname = usePathname();
+  useEffect(() => (isLoginOpen ? setIsLoginInOpen(false) : void null), [pathname])
+  useEffect(() => (isSignUpOpen ? setIsSignUpOpen(false) : void null), [pathname])
+
   return (
     <div
       className={classNames(

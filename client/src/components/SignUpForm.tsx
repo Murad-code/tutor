@@ -1,26 +1,19 @@
 "use client";
 
-import { handleSignUp } from "@/utils/auth";
+import { SignUpFormInput, handleSignIn, handleSignUp } from "@/utils/auth";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRouter } from 'next/navigation'
 type Props = {};
-
-export type SignUpFormInput = {
-  name: string;
-  phoneNumber: string;
-  email: string;
-  password: string;
-  subject: string;
-  address: string;
-  city: string;
-  postCode: string;
-};
 
 const SignUpForm = (props: Props) => {
   const { register, handleSubmit } = useForm<SignUpFormInput>();
+  const router = useRouter()
 
   const onSubmit: SubmitHandler<SignUpFormInput> = async (data) => {
     handleSignUp(data);
+    handleSignIn({ email: data.email, password: data.password });
+    router.push('/tutor')
   };
 
   return (

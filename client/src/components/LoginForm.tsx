@@ -1,21 +1,19 @@
 "use client";
 
-import React, { Fragment } from "react";
+import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Dialog, Transition } from "@headlessui/react";
-import { handleSignIn } from "../utils/auth";
+import { LoginFormInput, handleSignIn } from "../utils/auth";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
-export type FormInput = {
-  email: string;
-  password: string;
-};
-
 const LoginForm = (props: Props) => {
-  const { register, handleSubmit } = useForm<FormInput>();
-
-  const onSubmit: SubmitHandler<FormInput> = async (data) => handleSignIn(data);
+  const { register, handleSubmit } = useForm<LoginFormInput>();
+  const router = useRouter();
+  const onSubmit: SubmitHandler<LoginFormInput> = async (data) => {
+    handleSignIn(data);
+    router.push("/tutor");
+  };
 
   return (
     <form
